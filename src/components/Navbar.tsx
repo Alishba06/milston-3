@@ -4,15 +4,55 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
-    <header className=" flex items-center justify-between xs:flex-row py-2 border-b-2 border-accentDarkSecondary sticky top-0 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-10">
-      <nav className=" flex md:flex md:items-center md:justify-center md:gap-x-24 font-bold uppercase">
-        <Link href={"/"} className="text-3xl text-dark dark:text-light">
-          DEV<span className="text-3xl text-accentDarkPrimary">LAB</span>
+    <header className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white sticky top-0 z-20 shadow-lg">
+      {/* Brand Logo */}
+      <Link href="/" className="text-3xl font-extrabold tracking-wide">
+        Dev<span className="text-orange-500">Sphere</span>
+      </Link>
+
+      {/* Navigation Links */}
+      <nav className="hidden md:flex gap-x-6">
+        <Link
+          href="/"
+          className="text-sm font-medium hover:text-orange-500 transition duration-300"
+        >
+          Home
         </Link>
-        {/* <Link href={"/blogs"} className="bg-accentDarkSecondary px-4 py-1 rounded-lg text-dark ">Blogs</Link> */}
+        <Link
+          href="/about"
+          className="text-sm font-medium hover:text-orange-500 transition duration-300"
+        >
+          About
+        </Link>
+        <Link
+          href="/blogs"
+          className="text-sm font-medium hover:text-orange-500 transition duration-300"
+        >
+          Blogs
+        </Link>
+        <Link
+          href="/contact"
+          className="text-sm font-medium hover:text-orange-500 transition duration-300"
+        >
+          Contact
+        </Link>
       </nav>
-      <SocialMedia />
-      <ThemeToggle />
+
+      {/* Mobile Menu Toggle & Utilities */}
+      <div className="flex items-center gap-x-4">
+        {/* Social Media */}
+        {/* <SocialMedia /> */}
+
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
+        {/* Mobile Menu Toggle */}
+        <button className="md:hidden text-white focus:outline-none">
+          <span className="block w-6 h-0.5 bg-white mb-1"></span>
+          <span className="block w-6 h-0.5 bg-white mb-1"></span>
+          <span className="block w-6 h-0.5 bg-white"></span>
+        </button>
+      </div>
     </header>
   );
 }

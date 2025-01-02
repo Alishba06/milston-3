@@ -1,47 +1,54 @@
 import Link from "next/link";
 import React from "react";
-import FooterContactForm from "./FooterContactForm";
-import FooterLearn from "./FooterLearn";
 import SocialMedia from "./SocialMedia";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className=" w-full bg-black  mt-12">
-      <section className="flex flex-col md:flex-row">
-        <FooterLearn />
-        <FooterContactForm />
-      </section>
-      <section className=" px-6 xs:px-8 sm:px-12  lg:px-16 xl:px-24 2xl:px-32 py-2 flex flex-col sm:flex-row justify-between items-center gap-2 ">
+    <footer className="w-full h-[300px] bg-gray-800 text-gray-100 mt-12 ">
+      {/* Upper Section */}
+      <section className="py-8 px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          {/* Footer Title or Branding */}
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl font-bold text-orange-400 mb-2 mt-10">CodeChronicles
+            </h2>
+            <p className="text-sm text-gray-300">
+              Building seamless web experiences with Next.js & modern tools.
+            </p>
+          </div>
 
-      <div className="flex justify-center items-center gap-x-2 text-sm text-light">
-          <p className="">
-            Developed
-            <span>&nbsp;💖&nbsp;with&nbsp;</span>
-          </p>
-          <Link href={"https://nextjs.org/"} target="_blank">
-            <Image src="/nextjs.svg" alt="next.js 14" width={24} height={24} />
-          </Link>
-          <span className="text-light">&nbsp;&&nbsp;</span>
-          <Link href={"https://sanity.io/"} target="_blank">
-            <Image src="/sanity.svg" alt="sanity" width={24} height={24} />
-          </Link>
+          {/* Social Media Section */}
+          <div>
+            <SocialMedia />
+          </div>
         </div>
-      
-        <div>
-          <p className="text-xs text-light">
-            © 2024 <span className="text-light font-bold">&nbsp;DEV</span>
-            <span className="text-accentDarkPrimary font-bold">
-              LAB&nbsp;
-            </span>{" "}
-            All rights reserved.
-          </p>
-        </div>
-
-
-
       </section>
 
+      {/* Divider */}
+      <div className="h-1 bg-orange-400 mx-auto w-11/12"></div>
+
+      {/* Lower Section */}
+      <section className="py-4 px-6 md:px-12 lg:px-16 xl:px-20 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Development Credits */}
+        <div className="flex items-center gap-2 text-sm">
+          <span>Developed with 💖 using:</span>
+          <Link href="https://nextjs.org/" target="_blank">
+            <Image src="/nextjs.svg" alt="Next.js" width={30} height={30} />
+          </Link>
+          <span>&</span>
+          <Link href="https://sanity.io/" target="_blank">
+            <Image src="/sanity.svg" alt="Sanity" width={30} height={30} />
+          </Link>
+        </div>
+
+        {/* Footer Rights */}
+        <p className="text-xs text-gray-400 text-center">
+          © {new Date().getFullYear()} <span className="font-bold">Code</span>
+          <span className="font-bold text-orange-400">&nbsp;Chronicles</span>. All
+          Rights Reserved.
+        </p>
+      </section>
     </footer>
   );
 }

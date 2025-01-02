@@ -9,8 +9,9 @@ import Container from "@/components/Container";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DEVLAB: Discover the Latest in Web Development and AI",
-  description: "Welcome to our web development and AI blog, where we share our insights, opinions, and best practices on web development and AI. Here you will find articles on various topics, such as web design, web development, web security, web performance, AI, machine learning, deep learning, and more. Whether you are a web developer, a web designer, or a web enthusiast, you will find something interesting and valuable on our blog. Check out our latest posts and subscribe to our newsletter to stay updated.",
+  title: "Code Chronicles: Empowering Web Development & AI Enthusiasts",
+  description:
+    "Welcome to Code Chronicles! Discover expert insights and innovative solutions in web development, AI, and beyond. From front-end design to back-end strategies, we bring you tutorials, tips, and deep dives into the latest technologies shaping the digital world. Perfect for developers, designers, and tech enthusiasts looking to stay ahead in their journey. Explore, learn, and grow with us!",
 };
 
 export default function RootLayout({
@@ -21,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.className} bg-light dark:bg-dark `}
+className={`${montserrat.className} bg-gradient-to-r from-[#1a3257ee] to-[#08151b] dark:from-[#253e4e] dark:to-[#0c0d22]`} 
+
       >
         <ThemeProvider
           attribute="class"
