@@ -18,7 +18,7 @@ export default function BlogCard({ post }: { post: Post }) {
       {/* Content Section */}
       <div className="flex flex-col justify-between gap-y-3 p-6">
         {/* Blog Title */}
-        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 leading-tight line-clamp-2">
+        <h2 className="text-xl font-bold dark:text-white  leading-tight line-clamp-2">
           {post.title}
         </h2>
 

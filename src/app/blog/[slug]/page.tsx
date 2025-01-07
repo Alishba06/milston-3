@@ -1,3 +1,5 @@
+import AddComments from "@/components/AddComments";
+import AllComments from "@/components/AllComment";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
@@ -5,10 +7,19 @@ import Image from "next/image";
 
 export const revalidate = 60;
 
-export default async function page({ params: { slug } }: { params: { slug: string } }) {
-  const query = `*[_type=='post' && slug.current == "${slug}"]{
+export default async function page({ params: { slug },searchParams}: { params: { slug: string }; searchParams: { [key: string]: string | string[] | undefined ; comments?: string}}) {
+  const commentsOrder:string= searchParams?.comments || "desc";
+  console.log(searchParams,'serachParams')
+  const query = `*[_type=='post' && slug.current == "${slug}"]
+  {
+    _id,
     title, summary, image, content,
-    author->{bio, image, name}
+    author->{bio, image, name},
+    "comments": *[_type == "comment" && post._ref == ^._id] | order(_createdAt ${commentsOrder}){
+    name,
+    comment,
+    _createAt,
+    }
   }[0]`;
 
   let post;
@@ -61,6 +72,8 @@ export default async function page({ params: { slug } }: { params: { slug: strin
       </section>
       <section className="text-lg leading-normal text-dark/80 dark:text-light/80 prose-li:list-disc prose-li-list-inside prose-li:marker:text-accentDarkSecondary prose-strong:text-dark dark:prose-strong:text-white">
         <PortableText value={post.content} />
+        <AddComments postId={post?._id}/>
+        <AllComments comments={post?.comments || []} slug={post?.slug?.current} commentsOrder={commentsOrder.toString()}/>
       </section>
     </article>
   );

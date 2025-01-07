@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-className={`${montserrat.className} bg-gradient-to-r from-[#1a3257ee] to-[#08151b] dark:from-[#253e4e] dark:to-[#0c0d22]`} 
+className={`${montserrat.className} bg-gradient-to-r from-[#adb6c7ee] to-[#c3d4db] dark:from-[#182227] dark:to-[#141424]`} 
 
       >
         <ThemeProvider
