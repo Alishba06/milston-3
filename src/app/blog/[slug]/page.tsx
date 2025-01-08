@@ -1,7 +1,7 @@
 import AddComments from "@/components/AddComments";
 import AllComments from "@/components/AllComment";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
@@ -40,13 +40,16 @@ export default async function page({ params: { slug },searchParams}: { params: {
       <h1 className="text-xl xs:text-3xl lg:text-5xl font-bold text-dark dark:text-light">
         {post.title}
       </h1>
+       
+
       <Image
-        src={urlForImage(post.image)}
-        width={500}
-        height={500}
-        alt={post.title}
-        className="rounded"
-      />
+          src={urlFor(post.image)}
+          width={500}
+          height={500}
+          alt={post.title}
+          className="rounded"
+        />
+
       <section>
         <h2 className="text-xl xs:text-2xl md:text-3xl font-bold uppercase text-accentDarkPrimary">
           Summary
@@ -57,7 +60,7 @@ export default async function page({ params: { slug },searchParams}: { params: {
       </section>
       <section className="px-2 sm:px-8 md:px-12 flex gap-2 xs:gap-4 sm:gap-6 items-start xs:items-center justify-start">
         <Image
-          src={urlForImage(post.author.image)}
+          src={urlFor(post.author.image)}
           width={200}
           height={200}
           alt="author"

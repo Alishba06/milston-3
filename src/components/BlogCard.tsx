@@ -1,4 +1,4 @@
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ export default function BlogCard({ post }: { post: Post }) {
       {/* Image Section */}
       <div className="relative flex-1 overflow-hidden rounded-t-lg">
         <Image
-          src={urlForImage(post.image)}
+          src={urlFor(post.image)}
           alt={post.title}
           fill
           className="object-cover hover:opacity-90 transition-opacity duration-300"
